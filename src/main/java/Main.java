@@ -90,7 +90,7 @@ public class Main {
         Collection<CallLog> contacts = gson.fromJson(json, collectionType);
         contacts.forEach(contact -> System.out.println(contact.toString()));
         System.out.println("Второй вариант");
-        convertContactsFromJSON(convertContactsToJSON(createCallLogs(20)));
+        convertContactsFromJSON(convertContactsToJSON(createCallLogs(0)));
     }
 
     private static Collection<String> convertContactsToJSON(Collection<CallLog> contactList) {
@@ -115,6 +115,9 @@ public class Main {
     }
 
     private static ArrayList<CallLog> createCallLogs(int sizeOfCollection) {
+        if (sizeOfCollection < 0) {
+            sizeOfCollection = 10;
+        }
         CallLog log = new CallLog(2019,"857342345", true);
         CallLog log2 = new CallLog(2018, "857342346", true);
         CallLog log3 = new CallLog(2016, "857342344", false);
