@@ -90,7 +90,7 @@ public class Main {
         Collection<CallLog> contacts = gson.fromJson(json, collectionType);
         contacts.forEach(contact -> System.out.println(contact.toString()));
         System.out.println("Второй вариант");
-        convertContactsFromJSON(convertContactsToJSON(createCallLogs(0)));
+        convertContactsFromJSON(convertContactsToJSON(createCallLogs(Integer.parseInt(args[0]))));
     }
 
     private static Collection<String> convertContactsToJSON(Collection<CallLog> contactList) {
